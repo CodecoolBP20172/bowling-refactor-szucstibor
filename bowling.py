@@ -7,8 +7,6 @@ def score(game):
             result += 10 - last
         else:
             result += get_value(game[i])
-        # if not in_first_half:
-            # frame += 1
         if frame < 10 and get_value(game[i]) == 10:
             if game[i] == '/':
                 result += get_value(game[i+1])
@@ -30,13 +28,12 @@ def score(game):
             frame += 1
     return result
 
+
 def get_value(char):
     avaible = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     if char in avaible:
         return int(char)
-    elif char == 'X' or char == 'x':
-        return 10
-    elif char == '/':
+    elif char == 'X' or char == 'x' or char == '/':
         return 10
     elif char == '-':
         return 0
