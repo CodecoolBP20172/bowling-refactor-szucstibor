@@ -19,7 +19,7 @@ def score(game):
         last = get_value(game[i])
         if not in_first_half:
             frame += 1
-        if in_first_half is True:
+        if in_first_half:
             in_first_half = False
         else:
             in_first_half = True
@@ -30,12 +30,12 @@ def score(game):
 
 
 def get_value(char):
-    avaible = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    if char in avaible:
-        return int(char)
-    elif char == 'X' or char == 'x' or char == '/':
-        return 10
-    elif char == '-':
-        return 0
+    avaible = ["-", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    extras = ["x", "X", "/"]
+    for i in range(len(avaible)):
+        if char == avaible[i]:
+            return int(i)
+    if char in extras:
+        return(int(10))
     else:
         raise ValueError()
